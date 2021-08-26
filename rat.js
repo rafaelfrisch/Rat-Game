@@ -1,5 +1,8 @@
 const screen = document.getElementById('screen')
 const rat = document.getElementById('rat')
+const cat = document.getElementById('head')
+const leftPupil = document.getElementById('left-pupil')
+const rightPupil = document.getElementById('right-pupil')
 
 function initialPosition(screen, rat){
     const screen_position = getCenterPosition(screen)
@@ -35,6 +38,10 @@ function moveRat(element, mouse_x_position, mouse_y_position, angle){
     element.style.transform = 'translate(-50%, -50%)'+'rotate('+angle*180/Math.PI+'deg)'
 }
 
+function rotateElement(element, angle){
+    element.style.transform = 'rotate('+angle*180/Math.PI+'deg)';
+}
+
 initialPosition(screen, rat)
 
 screen.addEventListener('mousemove', (event) =>{
@@ -44,4 +51,6 @@ screen.addEventListener('mousemove', (event) =>{
     Math.atan2(mouse_y_position - getCenterPosition(screen).y_position,
     mouse_x_position - getCenterPosition(screen).x_position)
     moveRat(rat, mouse_x_position, mouse_y_position, rotation_angle)
+    rotateElement(leftPupil, rotation_angle+Math.PI/2)
+    rotateElement(rightPupil, rotation_angle+Math.PI/2)
 })
