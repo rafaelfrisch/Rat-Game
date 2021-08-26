@@ -3,6 +3,9 @@ const rat = document.getElementById('rat')
 const cat = document.getElementById('head')
 const leftPupil = document.getElementById('left-pupil')
 const rightPupil = document.getElementById('right-pupil')
+const leftEye = document.getElementById('left-eye')
+const rightEye = document.getElementById('right-eye')
+
 
 function initialPosition(screen, rat){
     const screen_position = getCenterPosition(screen)
@@ -42,6 +45,24 @@ function rotateElement(element, angle){
     element.style.transform = 'rotate('+angle*180/Math.PI+'deg)';
 }
 
+function catBlink(left_eye, right_eye){
+    let id = null;
+    let pos = 0;
+    clearInterval(id);
+    id = setInterval(frame, 5);
+    function frame() {
+      if (pos == 80) {
+        clearInterval(id);
+        left_eye.style.opacity = 1
+        right_eye.style.opacity = 1
+      } else {
+        pos++;
+        left_eye.style.opacity = 1-pos/30
+        right_eye.style.opacity = 1-pos/30
+      }
+    }
+}
+
 initialPosition(screen, rat)
 
 screen.addEventListener('mousemove', (event) =>{
@@ -73,3 +94,8 @@ screen.addEventListener('contextmenu', (event) =>{
     moveRat(cat, mouse_x_position, mouse_y_position, rotation_angle+Math.PI/2)
     rat.remove()
 }, false);
+
+screen.addEventListener('click', (event) =>{
+    event.preventDefault();
+    catBlink(leftEye, rightEye)
+});
