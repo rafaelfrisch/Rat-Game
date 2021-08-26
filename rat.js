@@ -62,3 +62,13 @@ screen.addEventListener('mousemove', (event) =>{
     rotateElement(leftPupil, left_pupil_angle+Math.PI/2)
     rotateElement(rightPupil, right_pupil_angle+Math.PI/2)
 })
+
+screen.addEventListener('contextmenu', (event) =>{
+    event.preventDefault();
+    const mouse_x_position = event.pageX
+    const mouse_y_position = event.pageY
+    const rotation_angle = 
+    Math.atan2(mouse_y_position - getCenterPosition(screen).y_position,
+    mouse_x_position - getCenterPosition(screen).x_position)
+    moveRat(cat, mouse_x_position, mouse_y_position, rotation_angle+Math.PI/2)
+}, false);
