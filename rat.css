@@ -28,7 +28,7 @@
     border-radius: 50%;
 }
 .pupil{
-    position: relative;
+    position: absolute;
     background-color: #000;
     width: 40%;
     height: 60%;
@@ -37,27 +37,42 @@
     top: 20%;
 }
 #left-eye{
-    position: relative;
-    top: 50px;
+    position: absolute;
+    top: 30%;
     left: 20%;
 }
 #right-eye{
-    position: relative;
-    top: 50px;
-    left: 40%;
+    position: absolute;
+    top: 30%;
+    left: 60%;
 }
 #nose{
-    position: relative;
+    position: absolute;
     background-color: #E090A1;
     left: 40%;
-    top: 35%;
+    top: 55%;
     width: 20%;
-    height: 20px;
-    border-radius: 20px;
+    height: 10%;
+    border-radius: 60%;
 }
-/* .ear{
+.ear{
     display: inline-block;
-    height: 5%;
-    width: 5%;
-    background-color: #E090A1;
-} */
+}
+#left-ear{
+    position: absolute;
+    left: 15%;
+    top: -10%;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 60px solid #E090A1;
+    z-index: -1;
+}
+#right-ear{
+    position: absolute;
+    left: 45%;
+    top: -10%;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 60px solid #E090A1;
+    z-index: -1;
+}
