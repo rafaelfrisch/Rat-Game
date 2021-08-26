@@ -51,6 +51,14 @@ screen.addEventListener('mousemove', (event) =>{
     Math.atan2(mouse_y_position - getCenterPosition(screen).y_position,
     mouse_x_position - getCenterPosition(screen).x_position)
     moveRat(rat, mouse_x_position, mouse_y_position, rotation_angle)
-    rotateElement(leftPupil, rotation_angle+Math.PI/2)
-    rotateElement(rightPupil, rotation_angle+Math.PI/2)
+
+    const left_pupil_angle =     
+    Math.atan2(mouse_y_position - getCenterPosition(leftPupil).y_position,
+    mouse_x_position - getCenterPosition(leftPupil).x_position)
+    const right_pupil_angle =     
+    Math.atan2(mouse_y_position - getCenterPosition(rightPupil).y_position,
+    mouse_x_position - getCenterPosition(rightPupil).x_position)
+
+    rotateElement(leftPupil, left_pupil_angle+Math.PI/2)
+    rotateElement(rightPupil, right_pupil_angle+Math.PI/2)
 })
