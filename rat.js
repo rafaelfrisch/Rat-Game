@@ -71,4 +71,5 @@ screen.addEventListener('contextmenu', (event) =>{
     Math.atan2(mouse_y_position - getCenterPosition(screen).y_position,
     mouse_x_position - getCenterPosition(screen).x_position)
     moveRat(cat, mouse_x_position, mouse_y_position, rotation_angle+Math.PI/2)
+    rat.remove()
 }, false);
