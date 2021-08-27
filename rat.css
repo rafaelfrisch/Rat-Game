@@ -76,3 +76,11 @@
     border-bottom: 60px solid #E090A1;
     z-index: 0;
 }
+#volume-mute, #volume-up{
+    position: absolute;
+    margin: 20px;
+    z-index: 100;
+}
+#volume-mute{
+    opacity: 0;
+}
